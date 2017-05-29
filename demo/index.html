@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+  <title>flag-icons demo</title>
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../clipboard/dist/clipboard.min.js"></script>
+  <link rel="import" href="../../paper-styles/demo-pages.html">
+  <link rel="import" href="../../paper-styles/color.html">
+  <link rel="import" href="../../paper-styles/typography.html">
+  <link rel="import" href="../../paper-toast/paper-toast.html">
+  <link rel="import" href="../../iron-meta/iron-meta.html">
+
+  <link rel="import" href="../flag-icons.html">
+</head>
+<body>
+<custom-style>
+  <style is="custom-style">
+    * {
+      @apply --paper-font-common-base;
+    }
+
+    a {
+      text-decoration: none;
+      color: orange;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+
+    paper-toast > iron-icon {
+      margin-right: 10px;
+      padding-top: 5px;
+    }
+
+    .set {
+      display: block;
+      text-align: center;
+      margin: auto;
+      padding: 1em 0;
+      border-top: 1px solid silver;
+      border-bottom: 1px solid silver;
+
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .container {
+      display: inline-block;
+      width: 10em;
+      margin: 1em 0.5em;
+      text-align: center;
+      cursor: pointer;
+
+      transition: all 0.2s;
+      -webkit-transition: all 0.2s;
+    }
+
+    .container:hover {
+      transform: scale(2);
+    }
+
+    .container:active {
+      transform: scale(1.75);
+    }
+
+    .container:hover > div {
+      margin-top: -0.5em;
+    }
+
+    .container:active > div, .container:focus > div {
+      color: rgba(255, 165, 0, .6);
+      font-weight: bolder;
+    }
+
+    .container > div {
+      margin-top: 0.5em;
+      color: black;
+      font-size: 10px;
+
+      transition: all 0.2s;
+      -webkit-transition: all 0.2s;
+    }
+  </style>
+</custom-style>
+
+<dom-bind>
+  <template is="dom-bind" id="scope">
+    <h2>List of the flags</h2>
+    <p>Each flag is identified by its country code.<br>
+    If you don't know the country code relative to the flag you want,
+      you can check it out <a href="https://countrycode.org/" target="_blank">here</a>.</p>
+    <dom-repeat class="set">
+      <template is="dom-repeat" items="{{getIconNames()}}">
+          <span class="container" data-clipboard-text$='<iron-icon icon="[[item]]"></iron-icon>'>
+            <iron-icon icon="{{item}}"></iron-icon>
+            <div>{{item}}</div>
+          </span>
+      </template>
+    </dom-repeat>
+    <paper-toast id="copied"></paper-toast>
+  </template>
+</dom-bind>
+
+<script>
+  window.addEventListener('WebComponentsReady', function() {
+    var iconset = new Polymer.IronMeta({type: 'iconset'}).byKey('flag');
+    scope.getIconNames = function() {
+      return iconset.getIconNames();
+    };
+    scope.parentNode.getIconNames = scope.getIconNames;
+    setTimeout(function() {
+      var clipboard = new Clipboard('.container');
+      clipboard.on('success', function(e) {
+        copied.innerHTML = e.text + ' Copied to clipboard!';
+        copied.open();
+      });
+      clipboard.on('error', function(e) {
+        var flag = e.trigger.dataset.clipboardText;
+        prompt('Unable to copy your flag automatically.\nPress Ctlr/Cmd + C to copy it manually', flag);
+      });
+    }, 500);
+  });
+</script>
+</body>
+</html>

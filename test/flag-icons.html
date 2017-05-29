@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <title>flag-icons</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+
+  <link rel="import" href="../flag-icons.html">
+</head>
+<body>
+
+  <script>
+
+suite('<flag-icons>', function() {
+  suite('basic behavior', function() {
+    var meta;
+
+    setup(function() {
+      meta = Polymer.Base.create('iron-meta', {type: 'iconset'});
+    });
+
+    test('all uniquely named', function() {
+      var allIcons = {};
+      var iconset = meta.byKey('flag');
+      expect(iconset).to.be.ok;
+
+      var iconNames = iconset.getIconNames();
+      expect(iconNames).to.not.be.empty;
+
+      for (var j = 0; j < iconNames.length; j++) {
+        var parts = iconNames[j].split(':');
+        expect(parts).to.have.length(2);
+        expect(parts[0]).to.equal('flag');
+        expect(parts[1]).to.have.length.at.least(1);
+        expect(allIcons.hasOwnProperty(parts[1])).to.be.false;
+
+        allIcons[parts[1]] = true;
+      }
+    });
+  });
+});
+
+  </script>
+
+</body>
+</html>

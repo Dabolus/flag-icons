@@ -1,0 +1,38 @@
+{
+  "name": "flag-icons",
+  "version": "0.0.1",
+  "description": "A set of flags for use with iron-icon",
+  "authors": [
+    "Dabolus"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "icon",
+    "flag"
+  ],
+  "main": "flag-icons.html",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Dabolus/flag-icons"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/Dabolus/flag-icons",
+  "dependencies": {
+    "iron-icon": "PolymerElements/iron-icon#^2.0",
+    "iron-iconset-svg": "PolymerElements/iron-iconset-svg#^2.0",
+    "polymer": "Polymer/polymer#^2.0"
+  },
+  "devDependencies": {
+    "paper-styles": "PolymerElements/paper-styles#^2.0",
+    "iron-component-page": "polymerelements/iron-component-page#^2.0",
+    "paper-toast": "PolymerElements/paper-toast#^2.0",
+    "iron-meta": "PolymerElements/iron-meta#^2.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "web-component-tester": "^6.0.0",
+    "iron-demo-helpers": "^2.0.0",
+    "clipboard": "^1.6.1",
+    "paper-icon-button": "PolymerElements/paper-icon-button#^2.0.0"
+  }
+}
