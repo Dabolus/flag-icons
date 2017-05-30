@@ -90,8 +90,8 @@
 <dom-bind>
   <template is="dom-bind" id="scope">
     <h2>List of the flags</h2>
-    <p>Each flag is identified by its country code.<br>
-    If you don't know the country code relative to the flag you want,
+    <p>Each flag is identified by its two-digit ISO code.<br>
+    If you don't know the ISO code relative to the flag you want,
       you can check it out <a href="https://countrycode.org/" target="_blank">here</a>.</p>
     <dom-repeat class="set">
       <template is="dom-repeat" items="{{getIconNames()}}">

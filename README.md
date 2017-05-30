@@ -11,7 +11,7 @@ on you application/website.
 It features 195 flat icons with rounded corners, that can be useful if you want to allow the user to change the language in you internationalized application.
 
 _Note: the credits for the original flags go to [Muharrem Şenyıl](https://freebiesbug.com/psd-freebies/100-flat-flag-psd-icons/).<br>
-I just ported them to an iconset_
+I just ported them to SVG and then to an iconset._
 
 ## Installation
 ```
@@ -69,5 +69,5 @@ Example with `paper-icon-button`s:
 ```html
 <paper-icon-button icon="flag:ad"></paper-icon-button>
 <paper-icon-button icon="flag:ag"></paper-icon-button>
-<paper-icon-button icon="flag:it"></paper-icon-button>
+<paper-icon-button icon="flag:ar"></paper-icon-button>
 ```
