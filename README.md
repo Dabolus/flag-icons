@@ -1,5 +1,5 @@
 # &lt;flag-icons&gt;
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-unpublished-lightgrey.svg)](https://www.webcomponents.org/element/Dabolus/flag-icons)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/Dabolus/flag-icons)
 [![Travis build](https://img.shields.io/travis/Dabolus/flag-icons.svg)](https://travis-ci.org/Dabolus/flag-icons)
 [![GitHub release](https://img.shields.io/github/release/Dabolus/flag-icons/all.svg)](https://github.com/Dabolus/flag-icons)
 
